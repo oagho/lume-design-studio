@@ -8,7 +8,7 @@ Built with plain HTML, [Tailwind CSS](https://tailwindcss.com) (CDN), Google Fon
 
 ```
 .
-├── index.html               # Page markup
+├── index.html               # Page markup + component classes
 ├── css/
 │   └── styles.css           # Custom styles
 ├── js/
@@ -39,6 +39,20 @@ python3 -m http.server 8000
    `https://<your-username>.github.io/<repo-name>/`.
 
 Prefer no Actions? Set **Source** to **Deploy from a branch**, pick `main` and `/ (root)`, and delete the `.github` folder.
+
+## Styling
+
+Repeated Tailwind utility groups are bundled into short, named classes so the markup stays readable, for example:
+
+```html
+<!-- before -->
+<button class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-charcoal-900 text-sand-50 text-xs uppercase tracking-[0.2em] hover:bg-accent-bronze transition-all duration-300 shadow-md">
+
+<!-- after -->
+<button class="btn-primary">
+```
+
+The definitions live in the `<style type="text/tailwindcss">` block in the `<head>` of `index.html` (grouped by Layout, Buttons, Forms, Modals, and so on). Change a look once there and it updates everywhere. Classes that JavaScript toggles (`hidden`, `opacity-0`) are intentionally kept in the markup.
 
 ## Customize
 
